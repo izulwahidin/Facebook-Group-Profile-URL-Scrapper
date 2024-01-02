@@ -1,7 +1,9 @@
 // Creating an array of href values and filtering unwanted URLs
 let members = [...document.querySelectorAll('div[role=listitem] a[role=link][tabindex="-1"]')]
   .map((e) => e.href)
-  .filter((href) => !href.includes("user") && !href.includes("group"));
+  .filter((href) => {
+	  return href.includes("user") && href.includes("group") ? true : false
+  });
 
 // Remove duplicates from the array
 members = [...new Set(members)];
